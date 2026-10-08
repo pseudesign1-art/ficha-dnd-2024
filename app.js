@@ -1,12 +1,18 @@
-const botaoTeste = document.querySelector("#botaoTeste");
-const mensagem = document.querySelector("#mensagem");
+document.addEventListener("DOMContentLoaded", function () {
+    const botaoTeste = document.getElementById("botaoTeste");
+    const mensagem = document.getElementById("mensagem");
 
-botaoTeste.addEventListener("click", () => {
+    if (!botaoTeste) {
+        console.error("Botão #botaoTeste não encontrado.");
+        return;
+    }
 
-    mensagem.textContent =
-        "JavaScript funcionando também. Podemos começar a aventura!";
+    botaoTeste.addEventListener("click", function () {
+        botaoTeste.textContent = "Funcionou!";
 
-    botaoTeste.textContent =
-        "Funcionou!";
-
+        if (mensagem) {
+            mensagem.textContent =
+                "JavaScript funcionando também. Podemos começar a aventura!";
+        }
+    });
 });
