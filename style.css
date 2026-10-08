@@ -782,3 +782,717 @@ form input:focus {
         width: 100%;
     }
 }
+/* ==================================================
+   FICHA DE PERSONAGEM
+================================================== */
+
+.pagina-personagem {
+    display: none;
+    padding: 28px 0 60px;
+}
+
+.pagina-personagem.ativa {
+    display: block;
+}
+
+body.ficha-aberta .topbar,
+body.ficha-aberta .pagina {
+    display: none;
+}
+
+
+/* NAVEGAÇÃO SUPERIOR */
+
+.ficha-navegacao {
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+.voltar-personagens {
+    padding: 8px 0;
+
+    border: 0;
+    background: transparent;
+    color: var(--texto-secundario);
+
+    font-family: inherit;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.voltar-personagens:hover {
+    color: white;
+}
+
+.ficha-salvamento {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--texto-fraco);
+    font-size: 0.72rem;
+}
+
+.ponto-salvo {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--verde);
+}
+
+
+/* CABEÇALHO */
+
+.personagem-header {
+    display: grid;
+
+    grid-template-columns:
+        100px
+        minmax(200px, 1fr)
+        auto;
+
+    align-items: center;
+    gap: 22px;
+
+    padding: 25px;
+
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(184, 45, 49, 0.08),
+            transparent 45%
+        ),
+        var(--superficie);
+}
+
+.personagem-retrato-grande {
+    width: 100px;
+    height: 100px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #654046,
+            #25191c 60%,
+            #15151a
+        );
+
+    color: rgba(255,255,255,0.75);
+
+    font-family: Georgia, serif;
+    font-size: 3.2rem;
+}
+
+.personagem-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--vermelho-claro);
+
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.personagem-identidade h1 {
+    margin-bottom: 6px;
+
+    font-size: 2.3rem;
+    line-height: 1;
+}
+
+.personagem-identidade p {
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+.personagem-resumo {
+    display: flex;
+    gap: 10px;
+}
+
+.resumo-item {
+    min-width: 100px;
+
+    padding: 14px;
+
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+
+    background: rgba(0,0,0,0.15);
+
+    text-align: center;
+}
+
+.resumo-item span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--texto-fraco);
+
+    font-size: 0.57rem;
+    font-weight: 700;
+}
+
+.resumo-item strong {
+    font-size: 1.25rem;
+}
+
+
+/* ABAS */
+
+.abas-ficha {
+    display: flex;
+    gap: 4px;
+
+    margin: 25px 0 30px;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+.aba-ficha {
+    position: relative;
+
+    padding: 13px 17px;
+
+    border: 0;
+
+    background: transparent;
+    color: var(--texto-secundario);
+
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.aba-ficha:hover {
+    color: white;
+}
+
+.aba-ficha.ativa {
+    color: white;
+}
+
+.aba-ficha.ativa::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+
+    height: 2px;
+
+    background: var(--vermelho-claro);
+}
+
+.conteudo-aba {
+    display: none;
+}
+
+.conteudo-aba.ativo {
+    display: block;
+}
+
+
+/* SEÇÕES */
+
+.secao-ficha {
+    margin-bottom: 30px;
+
+    padding: 22px;
+
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+
+    background: var(--superficie);
+}
+
+.secao-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.secao-titulo > div > span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--vermelho-claro);
+
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.secao-titulo h2 {
+    font-size: 1.05rem;
+}
+
+
+/* ATRIBUTOS */
+
+.grade-atributos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, minmax(90px, 1fr));
+
+    gap: 10px;
+}
+
+.atributo-card {
+    min-height: 125px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+
+    background: #131319;
+}
+
+.atributo-card.destaque {
+    border-color: rgba(219, 69, 73, 0.55);
+
+    background:
+        rgba(184, 45, 49, 0.08);
+}
+
+.atributo-nome {
+    color: var(--texto-fraco);
+
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.atributo-mod {
+    margin: 5px 0 1px;
+
+    font-size: 1.75rem;
+}
+
+.atributo-valor {
+    color: var(--texto-secundario);
+    font-size: 0.75rem;
+}
+
+
+/* COMBATE */
+
+.grade-combate {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+.combate-card {
+    min-height: 115px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+
+    background: #131319;
+
+    text-align: center;
+}
+
+.combate-card > span {
+    color: var(--texto-fraco);
+
+    font-size: 0.56rem;
+    font-weight: 800;
+}
+
+.combate-card strong {
+    margin: 6px 0 2px;
+
+    font-size: 1.65rem;
+}
+
+.combate-card small {
+    color: var(--texto-fraco);
+}
+
+
+/* VIDA */
+
+.painel-vida {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 20px;
+}
+
+.vida-principal {
+    padding: 20px;
+
+    border-radius: 9px;
+
+    background: #131319;
+}
+
+.vida-principal > span {
+    color: var(--texto-fraco);
+
+    font-size: 0.6rem;
+    font-weight: 800;
+}
+
+.vida-numeros {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+
+    margin: 6px 0 15px;
+}
+
+.vida-numeros strong {
+    font-size: 2.5rem;
+}
+
+.vida-numeros span {
+    color: var(--texto-secundario);
+}
+
+.barra-vida.ficha {
+    height: 7px;
+}
+
+.controles-vida {
+    display: flex;
+    gap: 7px;
+
+    margin-top: 15px;
+}
+
+.controle-pv {
+    width: 38px;
+    height: 34px;
+
+    border: 1px solid var(--borda-clara);
+    border-radius: 6px;
+
+    background: var(--superficie-clara);
+    color: white;
+
+    cursor: pointer;
+}
+
+.controle-pv:hover {
+    border-color: var(--vermelho-claro);
+}
+
+.vida-secundaria {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+.vida-secundaria > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 13px 15px;
+
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+
+    background: #131319;
+}
+
+.vida-secundaria span {
+    color: var(--texto-fraco);
+
+    font-size: 0.58rem;
+    font-weight: 800;
+}
+
+
+/* LISTAS */
+
+.ficha-duas-colunas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.lista-ficha {
+    display: flex;
+    flex-direction: column;
+}
+
+.lista-ficha > div {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 10px 10px 10px 20px;
+
+    border-bottom: 1px solid var(--borda);
+
+    color: var(--texto-secundario);
+
+    font-size: 0.8rem;
+}
+
+.lista-ficha > div:last-child {
+    border-bottom: 0;
+}
+
+.lista-ficha strong {
+    color: white;
+}
+
+.lista-ficha .proficiente::before {
+    content: "";
+
+    position: absolute;
+
+    left: 5px;
+    top: 50%;
+
+    width: 6px;
+    height: 6px;
+
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+
+    background: var(--vermelho-claro);
+}
+
+
+/* ATAQUES */
+
+.botao-pequeno {
+    padding: 7px 10px;
+
+    border: 1px solid var(--borda-clara);
+    border-radius: 6px;
+
+    background: transparent;
+    color: var(--texto-secundario);
+
+    font-family: inherit;
+    font-size: 0.7rem;
+
+    cursor: pointer;
+}
+
+.tabela-ataques {
+    overflow: hidden;
+
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+}
+
+.ataque {
+    display: grid;
+
+    grid-template-columns:
+        2fr
+        1fr
+        1.3fr
+        1.2fr;
+
+    gap: 10px;
+
+    padding: 13px 15px;
+
+    border-bottom: 1px solid var(--borda);
+
+    color: var(--texto-secundario);
+
+    font-size: 0.78rem;
+}
+
+.ataque:last-child {
+    border-bottom: 0;
+}
+
+.ataque strong {
+    color: white;
+}
+
+.ataque.cabecalho {
+    background: #131319;
+
+    color: var(--texto-fraco);
+
+    font-size: 0.56rem;
+    font-weight: 800;
+}
+
+
+/* ABAS AINDA NÃO CONSTRUÍDAS */
+
+.aba-em-construcao {
+    max-width: 480px;
+
+    margin: 80px auto;
+
+    text-align: center;
+}
+
+.aba-em-construcao > span {
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: var(--vermelho-claro);
+
+    font-size: 2rem;
+}
+
+.aba-em-construcao h2 {
+    margin-bottom: 8px;
+}
+
+.aba-em-construcao p {
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .personagem-header {
+        grid-template-columns: 80px 1fr;
+    }
+
+    .personagem-retrato-grande {
+        width: 80px;
+        height: 80px;
+    }
+
+    .personagem-resumo {
+        grid-column: 1 / -1;
+    }
+
+    .grade-atributos {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .grade-combate {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .pagina-personagem {
+        padding-top: 15px;
+    }
+
+    .personagem-header {
+        padding: 18px;
+
+        grid-template-columns: 65px 1fr;
+
+        gap: 14px;
+    }
+
+    .personagem-retrato-grande {
+        width: 65px;
+        height: 65px;
+
+        font-size: 2rem;
+    }
+
+    .personagem-identidade h1 {
+        font-size: 1.7rem;
+    }
+
+    .personagem-resumo {
+        width: 100%;
+    }
+
+    .resumo-item {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .abas-ficha {
+        overflow-x: auto;
+    }
+
+    .aba-ficha {
+        flex-shrink: 0;
+    }
+
+    .grade-atributos {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .grade-combate {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .painel-vida {
+        grid-template-columns: 1fr;
+    }
+
+    .ficha-duas-colunas {
+        grid-template-columns: 1fr;
+    }
+
+    .ataque {
+        grid-template-columns:
+            1.5fr
+            0.7fr
+            1fr;
+    }
+
+    .ataque > *:last-child {
+        display: none;
+    }
+
+}
