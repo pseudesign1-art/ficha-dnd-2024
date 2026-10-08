@@ -5,50 +5,285 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ficha D&D 2024</title>
+    <title>Meus Personagens | D&D 2024</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header class="topo">
-        <div>
-            <span class="logo">D&D</span>
-            <span class="titulo">Gerenciador de Personagens</span>
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+
+        <div class="marca">
+            <div class="marca-icone">D&D</div>
+
+            <div class="marca-texto">
+                <strong>Ficha 2024</strong>
+                <span>Gerenciador de personagens</span>
+            </div>
         </div>
-    </header>
 
-    <main class="container">
-
-        <section class="boas-vindas">
-            <p class="etiqueta">DUNGEONS & DRAGONS 2024</p>
-
-            <h1>Suas aventuras começam aqui.</h1>
-
-            <p>
-                Crie, organize e jogue com seus personagens
-                em uma ficha digital feita para D&D 2024.
-            </p>
-
-            <button id="botaoTeste">
-                Criar personagem
+        <nav class="menu">
+            <button class="menu-item ativo" data-pagina="personagens">
+                <span class="menu-icone">♙</span>
+                <span>Personagens</span>
             </button>
-        </section>
 
-        <section class="status">
-            <div class="status-icone">✓</div>
+            <button class="menu-item" data-pagina="campanhas">
+                <span class="menu-icone">⚑</span>
+                <span>Campanhas</span>
+            </button>
+
+            <button class="menu-item" data-pagina="biblioteca">
+                <span class="menu-icone">▤</span>
+                <span>Biblioteca</span>
+            </button>
+        </nav>
+
+        <div class="sidebar-rodape">
+            <div class="avatar-usuario">J</div>
+
+            <div class="usuario-info">
+                <strong>Jogador</strong>
+                <span>Conta local</span>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo">
+
+        <header class="topbar">
+            <button
+                class="botao-menu-mobile"
+                id="botaoMenuMobile"
+                aria-label="Abrir menu"
+            >
+                ☰
+            </button>
 
             <div>
-                <strong>Plataforma funcionando</strong>
-
-                <p id="mensagem">
-                    HTML e CSS carregados corretamente.
-                </p>
+                <span class="topbar-label">D&D 2024</span>
+                <h1 id="tituloPagina">Meus personagens</h1>
             </div>
+        </header>
+
+        <!-- PERSONAGENS -->
+        <section class="pagina ativa" id="pagina-personagens">
+
+            <div class="cabecalho-pagina">
+                <div>
+                    <p class="descricao-pagina">
+                        Crie personagens e continue suas aventuras.
+                    </p>
+                </div>
+
+                <button class="botao-primario" id="criarPersonagem">
+                    <span>＋</span>
+                    Criar personagem
+                </button>
+            </div>
+
+            <div class="grade-personagens" id="gradePersonagens">
+
+                <!-- PERSONAGEM DE DEMONSTRAÇÃO -->
+                <article class="card-personagem" data-personagem="lyria">
+
+                    <div class="retrato-personagem">
+                        <span>L</span>
+
+                        <div class="nivel-personagem">
+                            Nível 5
+                        </div>
+                    </div>
+
+                    <div class="card-conteudo">
+                        <div class="card-topo">
+                            <div>
+                                <h2>Lyria</h2>
+                                <p>Elfa • Maga</p>
+                            </div>
+
+                            <button
+                                class="botao-opcoes"
+                                aria-label="Opções"
+                            >
+                                •••
+                            </button>
+                        </div>
+
+                        <div class="vida">
+                            <div class="vida-texto">
+                                <span>Pontos de Vida</span>
+                                <strong>38 / 38</strong>
+                            </div>
+
+                            <div class="barra-vida">
+                                <div
+                                    class="barra-vida-atual"
+                                    style="width: 100%;"
+                                ></div>
+                            </div>
+                        </div>
+
+                        <div class="card-detalhes">
+                            <span>Sábia</span>
+                            <span>CA 15</span>
+                            <span>+3 Prof.</span>
+                        </div>
+                    </div>
+
+                </article>
+
+                <!-- CRIAR NOVO -->
+                <button class="card-novo-personagem" id="cardNovoPersonagem">
+                    <span class="icone-adicionar">＋</span>
+                    <strong>Novo personagem</strong>
+                    <small>Comece uma nova ficha</small>
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- CAMPANHAS -->
+        <section class="pagina" id="pagina-campanhas">
+
+            <div class="estado-vazio">
+                <div class="estado-vazio-icone">⚑</div>
+
+                <h2>Suas campanhas aparecerão aqui</h2>
+
+                <p>
+                    Campanhas vão reunir jogadores, personagens
+                    e conteúdos personalizados do narrador.
+                </p>
+
+                <button class="botao-primario">
+                    ＋ Criar campanha
+                </button>
+            </div>
+
+        </section>
+
+        <!-- BIBLIOTECA -->
+        <section class="pagina" id="pagina-biblioteca">
+
+            <div class="cabecalho-pagina">
+                <div>
+                    <p class="descricao-pagina">
+                        Consulte e organize o conteúdo usado pelas fichas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grade-biblioteca">
+
+                <button class="card-biblioteca">
+                    <span>⚔</span>
+                    <strong>Classes</strong>
+                    <small>12 classes</small>
+                </button>
+
+                <button class="card-biblioteca">
+                    <span>♜</span>
+                    <strong>Espécies</strong>
+                    <small>D&D 2024</small>
+                </button>
+
+                <button class="card-biblioteca">
+                    <span>⌂</span>
+                    <strong>Antecedentes</strong>
+                    <small>16 antecedentes</small>
+                </button>
+
+                <button class="card-biblioteca">
+                    <span>✦</span>
+                    <strong>Talentos</strong>
+                    <small>Talentos e benefícios</small>
+                </button>
+
+                <button class="card-biblioteca">
+                    <span>✧</span>
+                    <strong>Magias</strong>
+                    <small>Grimório</small>
+                </button>
+
+                <button class="card-biblioteca">
+                    <span>◆</span>
+                    <strong>Equipamentos</strong>
+                    <small>Armas, armaduras e itens</small>
+                </button>
+
+            </div>
+
         </section>
 
     </main>
+
+    <!-- FUNDO DO MODAL -->
+    <div class="modal-fundo" id="modalCriar">
+
+        <div class="modal">
+
+            <div class="modal-topo">
+                <div>
+                    <span class="modal-etiqueta">NOVA FICHA</span>
+                    <h2>Criar personagem</h2>
+                </div>
+
+                <button
+                    class="modal-fechar"
+                    id="fecharModal"
+                    aria-label="Fechar"
+                >
+                    ×
+                </button>
+            </div>
+
+            <p class="modal-descricao">
+                Por enquanto, vamos começar apenas com a identidade.
+                As escolhas de D&D serão feitas diretamente na ficha.
+            </p>
+
+            <form id="formPersonagem">
+
+                <label for="nomePersonagem">
+                    Nome do personagem
+                </label>
+
+                <input
+                    type="text"
+                    id="nomePersonagem"
+                    placeholder="Ex.: Victorine"
+                    autocomplete="off"
+                    required
+                >
+
+                <div class="modal-acoes">
+                    <button
+                        type="button"
+                        class="botao-secundario"
+                        id="cancelarModal"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="botao-primario"
+                    >
+                        Criar ficha
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
 
     <script src="app.js"></script>
 
