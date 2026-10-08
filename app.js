@@ -1,5 +1,126 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    /* ==================================================
+   ABRIR E FECHAR FICHA
+================================================== */
+
+if (abrirLyria) {
+
+    abrirLyria.addEventListener("click", function (evento) {
+
+        if (evento.target.closest(".botao-opcoes")) {
+            return;
+        }
+
+        document.body.classList.add("ficha-aberta");
+
+        paginaFicha.classList.add("ativa");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+}
+
+
+if (voltarPersonagens) {
+
+    voltarPersonagens.addEventListener("click", function () {
+
+        document.body.classList.remove("ficha-aberta");
+
+        paginaFicha.classList.remove("ativa");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+}
+
+
+/* ==================================================
+   ABAS DA FICHA
+================================================== */
+
+abasFicha.forEach(function (aba) {
+
+    aba.addEventListener("click", function () {
+
+        const destino = aba.dataset.aba;
+
+
+        abasFicha.forEach(function (botao) {
+            botao.classList.remove("ativa");
+        });
+
+
+        conteudosAba.forEach(function (conteudo) {
+            conteudo.classList.remove("ativo");
+        });
+
+
+        aba.classList.add("ativa");
+
+
+        const conteudoDestino =
+            document.getElementById("aba-" + destino);
+
+
+        if (conteudoDestino) {
+            conteudoDestino.classList.add("ativo");
+        }
+
+    });
+
+});
+
+
+/* ==================================================
+   PONTOS DE VIDA
+================================================== */
+
+controlesPV.forEach(function (botao) {
+
+    botao.addEventListener("click", function () {
+
+        const alteracao =
+            Number(botao.dataset.pv);
+
+
+        pvAtual += alteracao;
+
+
+        if (pvAtual < 0) {
+            pvAtual = 0;
+        }
+
+
+        if (pvAtual > pvMaximo) {
+            pvAtual = pvMaximo;
+        }
+
+
+        pvAtualElemento.textContent =
+            pvAtual;
+
+
+        const porcentagem =
+            (pvAtual / pvMaximo) * 100;
+
+
+        barraVidaFicha.style.width =
+            porcentagem + "%";
+
+    });
+
+});
+    
     const itensMenu = document.querySelectorAll(".menu-item");
     const paginas = document.querySelectorAll(".pagina");
 
@@ -22,6 +143,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const sidebar = document.querySelector(".sidebar");
 
+    const abrirLyria = document.getElementById("abrirLyria");
+const paginaFicha = document.getElementById("paginaFicha");
+const voltarPersonagens = document.getElementById("voltarPersonagens");
+
+const abasFicha = document.querySelectorAll(".aba-ficha");
+const conteudosAba = document.querySelectorAll(".conteudo-aba");
+
+const controlesPV = document.querySelectorAll(".controle-pv");
+const pvAtualElemento = document.getElementById("pvAtual");
+const barraVidaFicha = document.getElementById("barraVidaFicha");
+
+let pvAtual = 38;
+const pvMaximo = 38;
 
     /* NAVEGAÇÃO PRINCIPAL */
 
