@@ -89,7 +89,11 @@
             <div class="grade-personagens" id="gradePersonagens">
 
                 <!-- PERSONAGEM DE DEMONSTRAÇÃO -->
-                <article class="card-personagem" data-personagem="lyria">
+                <article
+    class="card-personagem"
+    id="abrirLyria"
+    data-personagem="lyria"
+>
 
                     <div class="retrato-personagem">
                         <span>L</span>
@@ -220,7 +224,476 @@
             </div>
 
         </section>
+<!-- FICHA DO PERSONAGEM -->
+<section class="pagina-personagem" id="paginaFicha">
 
+    <div class="ficha-navegacao">
+
+        <button class="voltar-personagens" id="voltarPersonagens">
+            ← Personagens
+        </button>
+
+        <div class="ficha-salvamento">
+            <span class="ponto-salvo"></span>
+            Salvo localmente
+        </div>
+
+    </div>
+
+
+    <!-- CABEÇALHO DO PERSONAGEM -->
+
+    <section class="personagem-header">
+
+        <div class="personagem-retrato-grande">
+            L
+        </div>
+
+        <div class="personagem-identidade">
+
+            <span class="personagem-label">
+                PERSONAGEM
+            </span>
+
+            <h1>Lyria</h1>
+
+            <p>
+                Elfa • Maga 5 • Sábia
+            </p>
+
+        </div>
+
+        <div class="personagem-resumo">
+
+            <div class="resumo-item">
+                <span>NÍVEL</span>
+                <strong>5</strong>
+            </div>
+
+            <div class="resumo-item">
+                <span>PROFICIÊNCIA</span>
+                <strong>+3</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NAVEGAÇÃO DA FICHA -->
+
+    <nav class="abas-ficha">
+
+        <button
+            class="aba-ficha ativa"
+            data-aba="ficha"
+        >
+            Ficha
+        </button>
+
+        <button
+            class="aba-ficha"
+            data-aba="caracteristicas"
+        >
+            Características
+        </button>
+
+        <button
+            class="aba-ficha"
+            data-aba="grimorio"
+        >
+            Grimório
+        </button>
+
+        <button
+            class="aba-ficha"
+            data-aba="inventario"
+        >
+            Inventário & Tesouro
+        </button>
+
+    </nav>
+
+
+    <!-- ABA FICHA -->
+
+    <div
+        class="conteudo-aba ativo"
+        id="aba-ficha"
+    >
+
+        <!-- ATRIBUTOS -->
+
+        <section class="secao-ficha">
+
+            <div class="secao-titulo">
+                <div>
+                    <span>ATRIBUTOS</span>
+                    <h2>Habilidades</h2>
+                </div>
+            </div>
+
+
+            <div class="grade-atributos">
+
+                <div class="atributo-card">
+                    <span class="atributo-nome">FOR</span>
+                    <strong class="atributo-mod">+0</strong>
+                    <span class="atributo-valor">10</span>
+                </div>
+
+                <div class="atributo-card">
+                    <span class="atributo-nome">DES</span>
+                    <strong class="atributo-mod">+2</strong>
+                    <span class="atributo-valor">14</span>
+                </div>
+
+                <div class="atributo-card">
+                    <span class="atributo-nome">CON</span>
+                    <strong class="atributo-mod">+2</strong>
+                    <span class="atributo-valor">14</span>
+                </div>
+
+                <div class="atributo-card destaque">
+                    <span class="atributo-nome">INT</span>
+                    <strong class="atributo-mod">+4</strong>
+                    <span class="atributo-valor">18</span>
+                </div>
+
+                <div class="atributo-card">
+                    <span class="atributo-nome">SAB</span>
+                    <strong class="atributo-mod">+1</strong>
+                    <span class="atributo-valor">12</span>
+                </div>
+
+                <div class="atributo-card">
+                    <span class="atributo-nome">CAR</span>
+                    <strong class="atributo-mod">+0</strong>
+                    <span class="atributo-valor">10</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COMBATE -->
+
+        <section class="secao-ficha">
+
+            <div class="secao-titulo">
+                <div>
+                    <span>COMBATE</span>
+                    <h2>Estado atual</h2>
+                </div>
+            </div>
+
+
+            <div class="grade-combate">
+
+                <div class="combate-card">
+                    <span>CLASSE DE ARMADURA</span>
+                    <strong>15</strong>
+                    <small>CA</small>
+                </div>
+
+                <div class="combate-card">
+                    <span>INICIATIVA</span>
+                    <strong>+2</strong>
+                    <small>DES</small>
+                </div>
+
+                <div class="combate-card">
+                    <span>DESLOCAMENTO</span>
+                    <strong>9 m</strong>
+                    <small>Normal</small>
+                </div>
+
+                <div class="combate-card">
+                    <span>PERCEPÇÃO PASSIVA</span>
+                    <strong>14</strong>
+                    <small>Sabedoria</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- VIDA -->
+
+        <section class="secao-ficha">
+
+            <div class="secao-titulo">
+                <div>
+                    <span>SOBREVIVÊNCIA</span>
+                    <h2>Pontos de Vida</h2>
+                </div>
+            </div>
+
+
+            <div class="painel-vida">
+
+                <div class="vida-principal">
+
+                    <span>PV ATUAIS</span>
+
+                    <div class="vida-numeros">
+                        <strong id="pvAtual">38</strong>
+                        <span>/ 38</span>
+                    </div>
+
+                    <div class="barra-vida ficha">
+                        <div
+                            class="barra-vida-atual"
+                            id="barraVidaFicha"
+                            style="width: 100%;"
+                        ></div>
+                    </div>
+
+                    <div class="controles-vida">
+
+                        <button
+                            class="controle-pv"
+                            data-pv="-1"
+                        >
+                            −
+                        </button>
+
+                        <button
+                            class="controle-pv"
+                            data-pv="1"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="vida-secundaria">
+
+                    <div>
+                        <span>PV MÁXIMOS</span>
+                        <strong>38</strong>
+                    </div>
+
+                    <div>
+                        <span>PV TEMPORÁRIOS</span>
+                        <strong>0</strong>
+                    </div>
+
+                    <div>
+                        <span>DADOS DE VIDA</span>
+                        <strong>5d6</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DUAS COLUNAS -->
+
+        <div class="ficha-duas-colunas">
+
+            <!-- SALVAGUARDAS -->
+
+            <section class="secao-ficha">
+
+                <div class="secao-titulo">
+                    <div>
+                        <span>DEFESAS</span>
+                        <h2>Salvaguardas</h2>
+                    </div>
+                </div>
+
+                <div class="lista-ficha">
+
+                    <div>
+                        <span>Força</span>
+                        <strong>+0</strong>
+                    </div>
+
+                    <div>
+                        <span>Destreza</span>
+                        <strong>+2</strong>
+                    </div>
+
+                    <div>
+                        <span>Constituição</span>
+                        <strong>+2</strong>
+                    </div>
+
+                    <div class="proficiente">
+                        <span>Inteligência</span>
+                        <strong>+7</strong>
+                    </div>
+
+                    <div class="proficiente">
+                        <span>Sabedoria</span>
+                        <strong>+4</strong>
+                    </div>
+
+                    <div>
+                        <span>Carisma</span>
+                        <strong>+0</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PERÍCIAS -->
+
+            <section class="secao-ficha">
+
+                <div class="secao-titulo">
+                    <div>
+                        <span>APTIDÕES</span>
+                        <h2>Perícias</h2>
+                    </div>
+                </div>
+
+                <div class="lista-ficha">
+
+                    <div class="proficiente">
+                        <span>Arcanismo</span>
+                        <strong>+7</strong>
+                    </div>
+
+                    <div>
+                        <span>Furtividade</span>
+                        <strong>+2</strong>
+                    </div>
+
+                    <div class="proficiente">
+                        <span>História</span>
+                        <strong>+7</strong>
+                    </div>
+
+                    <div>
+                        <span>Intuição</span>
+                        <strong>+1</strong>
+                    </div>
+
+                    <div>
+                        <span>Percepção</span>
+                        <strong>+1</strong>
+                    </div>
+
+                    <div>
+                        <span>Persuasão</span>
+                        <strong>+0</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- ATAQUES -->
+
+        <section class="secao-ficha">
+
+            <div class="secao-titulo">
+
+                <div>
+                    <span>COMBATE</span>
+                    <h2>Ataques</h2>
+                </div>
+
+                <button class="botao-pequeno">
+                    ＋ Adicionar
+                </button>
+
+            </div>
+
+
+            <div class="tabela-ataques">
+
+                <div class="ataque cabecalho">
+                    <span>ATAQUE</span>
+                    <span>BÔNUS</span>
+                    <span>DANO</span>
+                    <span>TIPO</span>
+                </div>
+
+                <div class="ataque">
+                    <strong>Adaga</strong>
+                    <span>+5</span>
+                    <span>1d4 + 2</span>
+                    <span>Perfurante</span>
+                </div>
+
+                <div class="ataque">
+                    <strong>Raio de Fogo</strong>
+                    <span>+7</span>
+                    <span>2d10</span>
+                    <span>Fogo</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- OUTRAS ABAS -->
+
+    <div
+        class="conteudo-aba"
+        id="aba-caracteristicas"
+    >
+        <div class="aba-em-construcao">
+            <span>✦</span>
+            <h2>Características</h2>
+            <p>
+                Aqui ficarão características de classe,
+                subclasse, espécie, talentos e recursos.
+            </p>
+        </div>
+    </div>
+
+
+    <div
+        class="conteudo-aba"
+        id="aba-grimorio"
+    >
+        <div class="aba-em-construcao">
+            <span>✧</span>
+            <h2>Grimório</h2>
+            <p>
+                Magias, espaços de magia e preparação
+                serão gerenciados aqui.
+            </p>
+        </div>
+    </div>
+
+
+    <div
+        class="conteudo-aba"
+        id="aba-inventario"
+    >
+        <div class="aba-em-construcao">
+            <span>◆</span>
+            <h2>Inventário & Tesouro</h2>
+            <p>
+                Equipamentos, moedas, tesouros
+                e itens especiais ficarão aqui.
+            </p>
+        </div>
+    </div>
+
+</section>
+        
     </main>
 
     <!-- FUNDO DO MODAL -->
